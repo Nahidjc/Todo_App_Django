@@ -8,6 +8,7 @@
 <div>
     <p>
         {{ task }}
+        <a href="{% url 'update_task' task.id %}">Update</a>
     </p>
 </div>
 
