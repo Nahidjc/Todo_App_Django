@@ -8,4 +8,8 @@ from .forms import *
 def index(request):
     tasks = Task.objects.all()
     form = TaskForm()
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
     return render(request, 'tasks/list.html', context={'tasks': tasks, 'form': form})
